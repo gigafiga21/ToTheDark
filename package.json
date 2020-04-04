@@ -1,0 +1,28 @@
+{
+  "name": "tothedark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "eslint": "^6.8.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gigafiga21/ToTheDark.git"
+  },
+  "author": "gigafiga21",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gigafiga21/ToTheDark/issues"
+  },
+  "homepage": "https://github.com/gigafiga21/ToTheDark#readme"
+}

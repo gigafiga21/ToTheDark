@@ -1,0 +1,13 @@
+#!/bin/sh
+
+FOLDER=`git rev-parse --show-toplevel`
+. $FOLDER/Infra/GitSyntax/Branch.sh --source-only
+
+checkBranchStyle false;
+ERROR=$?;
+
+if [[ $ERROR -ne 0 ]]; then
+    exit 1;
+fi
+
+exit 0;

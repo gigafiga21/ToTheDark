@@ -1,0 +1,17 @@
+jobs:
+  include:
+
+    - stage: GitSyntax
+      language: bash
+      script:
+        - bash ./Infra/GitSyntax/Commits.sh
+        - bash ./Infra/GitSyntax/Branch.sh
+
+    - stage: Linting
+      language: node_js
+      node_js:
+        - 8.6.0
+      before_install:
+        - npm install eslint
+      script:
+        - bash ./Infra/Linters/Linting.sh
