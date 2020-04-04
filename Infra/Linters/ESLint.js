@@ -10,8 +10,12 @@ module.exports = {
     },
     "parserOptions": {
         "ecmaVersion": 2018,
-        "sourceType": "module"
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true,
+        }
     },
+    "plugins": ["react"],
     "ignorePatterns": ["ESLint.js"],
     "rules": {
         "array-bracket-spacing": [2, "never"],
