@@ -2,17 +2,17 @@ import React from 'react';
 import './Table.css';
 
 /**
- * Description of the table header
- * @typedef  {Object} Header
- * @property {String} key   - key in table content row description
- * @property {String} value - text to be rendered in header cell
+ * Description of the table data
+ * @typedef  {Object} TableContent
+ * @property {Array[Object]} headers - description of table head
+ * @property {String}        headers.key   - key in table content row description
+ * @property {String}        headers.value - text to be rendered in header cell
+ * @property {Array[Object]} data.content  - row content, where key - cell header name
  */
 
 /**
  * Draws table
- * @param {Object} data - table contents
- * @param {Array[Header]} data.headers - headers of the table
- * @param {Array[Object]} data.content - row content, where key - cell header name
+ * @param {TableContent} data - table contents
  */
 export default function({ data })
 {
