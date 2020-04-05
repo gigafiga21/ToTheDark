@@ -1,0 +1,42 @@
+@import url('./Assets/Fonts/FiraCode.css');
+
+body
+{
+    margin: 0;
+}
+
+#app
+{
+    width: 100%;
+    height: 100%;
+}
+
+.app
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-family: 'Fira Code', Arial, sans-serif;
+}
+
+.app__data
+{
+    height: 60%;
+    padding: 50px;
+    background: #353535;
+    overflow: auto;
+    box-shadow: 10px 10px 0 #c32766;
+}
+
+.table td
+{
+    max-width: 100px;
+    font-size: 12px;
+    color: #fff;
+}
+
+.table tr :nth-child(2)
+{
+    max-width: 200px;
+}
