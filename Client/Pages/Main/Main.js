@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
+
+import './Scrollbar.css';
 import './Main.css';
 
 import Table from '../../Blocks/Table/Table';
