@@ -46,7 +46,24 @@ body
     color: #fff;
 }
 
-.table tr :nth-child(2)
+.table__header td
+{
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.table td:nth-child(1)
+{
+    text-align: right;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.table td:nth-child(2)
 {
     max-width: 200px;
+}
+
+.table td:nth-child(5)
+{
+    text-align: right;
 }

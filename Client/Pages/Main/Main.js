@@ -102,7 +102,7 @@ export default class App extends Component
                     before = (
                         <Fragment>
                             <span className="app__text--shaded">
-                                {dateToString({ ...diff, seconds: 0 }).time}
+                                {dateToString({ ...diff }).time}
                             </span>
                             <br />
                             {diff.days + '\u00A0days'}
