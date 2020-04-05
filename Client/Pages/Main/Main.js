@@ -67,12 +67,18 @@ export default class App extends Component
                 } = row.launch;
                 const launch = new Date(years, months, date, hours, minutes);
                 const timeStamp = dateToString({ ...row.launch, seconds: 0 });
-                const before = datesDifference(new Date(), launch);
-                const beforeString = before === null ? 'Launched' :
-                    addZeros(before.hours, 2) + ':' +
-                    addZeros(before.minutes, 2) + ':' +
-                    addZeros(before.seconds, 2) + ' ' +
-                    before.days + '\u00A0days';
+
+                let before = 'Uncertain date';
+                let diff = datesDifference(new Date(), launch);
+    
+                if (diff === null)
+                {
+                    before = 'Launched';
+                }
+                else if (timeStamp.isFull)
+                {
+                    before = dateToString({ ...diff, seconds: 0 }).time + ` ${diff.days}\u00A0days`;
+                }
 
                 return {
                     number: index,
@@ -80,7 +86,7 @@ export default class App extends Component
                     vehicle: row.vehicle,
                     location: row.location,
                     date: timeStamp.time + ' ' + timeStamp.date,
-                    before: beforeString,
+                    before: before,
                 };
             }),
         };

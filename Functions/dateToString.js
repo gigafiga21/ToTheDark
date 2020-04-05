@@ -24,13 +24,25 @@ export function addZeros(number, decimals)
 function joinStamps(stamps, divider, reversed)
 {
     let tmp = reversed ? [...stamps].reverse() : stamps;
-    let stop = tmp.indexOf(null);
+    let stop = tmp.length;
 
-    tmp = (stop === -1 ? tmp : tmp.slice(0, stop))
+    for (let i = 0; i < tmp.length; i ++)
+    {
+        if (tmp[i] === null || tmp[i] === undefined)
+        {
+            stop = i;
+            break;
+        }
+    }
+
+    tmp = tmp.slice(0, stop)
         .map((stamp) => addZeros(stamp, 2));
     tmp = reversed ? tmp.reverse() : tmp;
 
-    return tmp.join(divider);
+    return {
+        isFull: stop === stamps.length,
+        stamps: tmp.join(divider),
+    };
 }
 
 /**
@@ -41,12 +53,16 @@ function joinStamps(stamps, divider, reversed)
  */
 export default function dateToString(date)
 {
+    const strDate = joinStamps([
+        date.date, date.months, date.years,
+    ], '.', true);
+    const strTime = joinStamps([
+        date.hours, date.minutes, date.seconds,
+    ], ':', false);
+
     return {
-        date: joinStamps([
-            date.date, date.months, date.years,
-        ], '.', true),
-        time: joinStamps([
-            date.hours, date.minutes, date.seconds,
-        ], ':', false),
+        date: strDate.stamps,
+        time: strTime.stamps,
+        isFull: strDate.isFull && strTime.isFull,
     };
 }
