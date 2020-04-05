@@ -89,7 +89,7 @@ export default class App extends Component
                     </span>
                 );
     
-                if (diff === null)
+                if (diff === null && timeStamp.isFull)
                 {
                     before = (
                         <span className="app__text--hilighted">
