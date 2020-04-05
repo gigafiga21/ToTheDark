@@ -96,13 +96,12 @@ module.exports =
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
-            { test: /\.svg$/, use: ['raw-loader'] },
             {
-                test: /\.(png|jpe?g|gif)$/i,
+                test: /\.(png|jpe?g|gif|svg)$/i,
                 loader: 'file-loader',
                 options:
                 {
-                    publicPath: 'Assets/',
+                    publicPath: 'Assets/Images',
                     name: '[name].[ext]',
                 },
             },
