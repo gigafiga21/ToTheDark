@@ -4,7 +4,7 @@
  * @property {Number} seconds
  * @property {Number} minutes
  * @property {Number} hours
- * @property {Number} dates
+ * @property {Number} days
  */
 
 /**

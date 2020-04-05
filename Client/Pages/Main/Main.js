@@ -66,6 +66,7 @@ export default class App extends Component
                     quarter = 0,
                 } = row.launch;
                 const launch = new Date(years, months, date, hours, minutes);
+                const timeStamp = dateToString({ ...row.launch, seconds: 0 });
                 const before = datesDifference(new Date(), launch);
                 const beforeString = before === null ? 'Launched' :
                     addZeros(before.hours, 2) + ':' +
@@ -78,9 +79,7 @@ export default class App extends Component
                     mission: row.mission,
                     vehicle: row.vehicle,
                     location: row.location,
-                    _date: launch,
-                    date: dateToString(launch),
-                    _before: before,
+                    date: timeStamp.time + ' ' + timeStamp.date,
                     before: beforeString,
                 };
             }),
