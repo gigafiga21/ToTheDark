@@ -1,0 +1,18 @@
+::-webkit-scrollbar
+{
+    width: 14px;
+    background: #353535;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #454545;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #505050;
+}
+
+.app__data
+{
+    scrollbar-color: #454545 #353535;
+}
