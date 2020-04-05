@@ -101,8 +101,8 @@ module.exports =
                 loader: 'file-loader',
                 options:
                 {
-                    publicPath: 'Assets/Images',
-                    name: '[name].[ext]',
+                    publicPath: '',
+                    name: 'Assets/Images/[name].[ext]',
                 },
             },
             {
@@ -124,8 +124,6 @@ module.exports =
     [
         new CopyPlugin([
             { from: path.resolve(__dirname, `${type}s/${entry}.html`), to: `${output}.html` },
-            { from: path.resolve(__dirname, `${type}s/${output}/Assets`), to: 'Assets' },
-            { from: path.resolve(__dirname, `${type}s/${output}/Basis.js`), to: 'Basis.js' },
         ]),
         new MiniCssExtractPlugin(
             { filename: `${output}.css` }
