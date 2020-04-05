@@ -29,6 +29,14 @@ export default class App extends Component
                 content: [],
             },
         };
+
+        /**
+         * Launches data in the original format
+         * @type {Array}
+         */
+        this.json = [];
+
+        this.tick = this.tick.bind(this);
     }
 
     /**
@@ -90,17 +98,26 @@ export default class App extends Component
                 responce.json()
                     .then((data) =>
                     {
-                        this.setState({
-                            data: this.convertData(data),
-                        });
+                        this.json = data;
+                        this.tick();
                     });
             });
+    }
+
+    /**
+     * Updates table time in second
+     */
+    tick()
+    {
+        this.setState({
+            data: this.convertData(this.json),
+        });
+        setTimeout(this.tick, 1000);
     }
 
     render()
     {
         const { data } = this.state;
-        console.log(data);
 
         return (
             <div className="app">
