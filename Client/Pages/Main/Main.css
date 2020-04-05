@@ -29,6 +29,16 @@ body
     box-shadow: 10px 10px 0 #c32766;
 }
 
+.app__text--shaded
+{
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.app__text--hilighted
+{
+    color: #de2f75;
+}
+
 .table td
 {
     max-width: 100px;
@@ -36,7 +46,24 @@ body
     color: #fff;
 }
 
-.table tr :nth-child(2)
+.table__header td
+{
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.table td:nth-child(1)
+{
+    text-align: right;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.table td:nth-child(2)
 {
     max-width: 200px;
+}
+
+.table td:nth-child(5)
+{
+    text-align: right;
 }

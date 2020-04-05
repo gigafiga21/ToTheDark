@@ -68,16 +68,46 @@ export default class App extends Component
                 const launch = new Date(years, months, date, hours, minutes);
                 const timeStamp = dateToString({ ...row.launch, seconds: 0 });
 
-                let before = 'Uncertain date';
-                let diff = datesDifference(new Date(), launch);
-    
-                if (diff === null)
+                let timeStampDOM = timeStamp.date;
+                if (timeStamp.isFull)
                 {
-                    before = 'Launched';
+                    timeStampDOM = (
+                        <Fragment>
+                            <span className="app__text--shaded">
+                                {timeStamp.time}
+                            </span>
+                            <br />
+                            {timeStamp.date}
+                        </Fragment>
+                    );
+                }
+
+                let diff = datesDifference(new Date(), launch);
+                let before = (
+                    <span className="app__text--shaded">
+                        Uncertain date
+                    </span>
+                );
+    
+                if (diff === null && timeStamp.isFull)
+                {
+                    before = (
+                        <span className="app__text--hilighted">
+                            Launched
+                        </span>
+                    );
                 }
                 else if (timeStamp.isFull)
                 {
-                    before = dateToString({ ...diff, seconds: 0 }).time + ` ${diff.days}\u00A0days`;
+                    before = (
+                        <Fragment>
+                            <span className="app__text--shaded">
+                                {dateToString({ ...diff }).time}
+                            </span>
+                            <br />
+                            {diff.days + '\u00A0days'}
+                        </Fragment>
+                    );
                 }
 
                 return {
@@ -85,7 +115,7 @@ export default class App extends Component
                     mission: row.mission,
                     vehicle: row.vehicle,
                     location: row.location,
-                    date: timeStamp.time + ' ' + timeStamp.date,
+                    date: timeStampDOM,
                     before: before,
                 };
             }),

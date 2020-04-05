@@ -14,7 +14,7 @@
     padding: 10px 20px 10px 0;
 }
 
-.table tr :first-child
+.table tr > :first-child
 {
     padding-left: 20px;
 }
