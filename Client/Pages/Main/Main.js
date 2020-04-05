@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
+import './Main.css';
+
 import Table from '../../Blocks/Table/Table';
 import './Main.css';
 import dateToString, { addZeros } from '../../../Functions/dateToString';
@@ -61,7 +63,7 @@ export default class App extends Component
                     addZeros(before.hours, 2) + ':' +
                     addZeros(before.minutes, 2) + ':' +
                     addZeros(before.seconds, 2) + ' ' +
-                    before.days + ' days';
+                    before.days + '\u00A0days';
 
                 return {
                     number: index,
@@ -101,7 +103,11 @@ export default class App extends Component
         console.log(data);
 
         return (
-            <Table data={data} />
+            <div className="app">
+                <div className="app__data">
+                    <Table data={data} />
+                </div>
+            </div>
         );
     }
 }

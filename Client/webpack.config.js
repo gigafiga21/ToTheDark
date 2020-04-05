@@ -106,6 +106,19 @@ module.exports =
                     name: '[name].[ext]',
                 },
             },
+            {
+                test: /\.ttf$/,
+                use:
+                [
+                    {
+                        loader: 'file-loader',
+                        options:
+                        {
+                            name: './Assets/Fonts/[name].[ext]',
+                        },
+                    },
+                ],
+            },
         ],
     },
     plugins:

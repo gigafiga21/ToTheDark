@@ -35,11 +35,11 @@ export default function({ data })
     });
 
     return (
-        <table>
-            <thead>
+        <table className="table">
+            <thead className="table__header">
                 <tr>{headers}</tr>
             </thead>
-            <tbody>
+            <tbody className="table__body">
                 {content}
             </tbody>
         </table>
